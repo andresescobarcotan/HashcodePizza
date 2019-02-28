@@ -4,7 +4,7 @@ import java.util.List;
 import PizzaParser;
 import com.sun.org.apache.xalan.internal.xsltc.util.IntegerArray;
 
-public class PizzaMain{
+public class PizzaMain {
 
     public static void main(String args[]){
         // Se lanza el programa principal
@@ -22,6 +22,8 @@ public class PizzaMain{
             System.out.print("Numero de maximo de celdas por porcion: "+ String.valueOf(numeroMaxCeldasPorcion));
             System.out.println("Pizza aplanada : ");
             System.out.println(pizzaPlana.toString());
+        } else {
+            System.out.println("Error no hay argumentos");
         }
     }
 }

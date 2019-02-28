@@ -9,14 +9,14 @@ public class PizzaParser {
     * y devolver una estructura iterable que facilite la solucion del problema.
     */
     private  String FICHERO_PIZZA = "c_medium.in";
-    private static int numeroFilas = 0;
-    private static int numeroColumnas = 0;
-    private static int numeroIngredientes = 0;
-    private static int numeroMaxCeldasPorcion = 0;
-    private static int numeroSetas = 0;
-    private static int numeroTomates = 0;
+    private  int numeroFilas = 0;
+    private  int numeroColumnas = 0;
+    private  int numeroIngredientes = 0;
+    private  int numeroMaxCeldasPorcion = 0;
+    private  int numeroSetas = 0;
+    private  int numeroTomates = 0;
     private final static String TOMATE = "T"; // Tomate sera 0 y Seta sera 1
-    private static ArrayList<Integer> pizzaPlana; 
+    private ArrayList<Integer> pizzaPlana; 
 
     public int getNumeroIngredientes(){
         return numeroIngredientes;
@@ -64,7 +64,7 @@ public class PizzaParser {
         }
     }
     
-    private static void aplanarPizza(int _numeroLinea, String _lineaMatriz){
+    private void aplanarPizza(int _numeroLinea, String _lineaMatriz){
         // Lo que hace esta funcion es aplanar la estructura de la pizza, eliminando caracteres 
         int numeroAuxiliar =  _numeroLinea*numeroColumnas;
         for(int i=0; i < _lineaMatriz.length(); i++){
@@ -78,7 +78,7 @@ public class PizzaParser {
         
     }
 
-    private static boolean extraerCaracteristicasPizza(String _lineaCaracteristicas){
+    private boolean extraerCaracteristicasPizza(String _lineaCaracteristicas){
         boolean errorExtraccion = false;
         try {
            String[] caracteristicas = _lineaCaracteristicas.split(" ");
