@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.sun.org.apache.xalan.internal.xsltc.util.IntegerArray;
-public class pizzaParser {
+public class PizzaParser {
     /*
     * El objetivo de esta clase es el de parsear el fichero que pasen por entrada 
     * y devolver una estructura iterable que facilite la solucion del problema.
@@ -15,43 +15,30 @@ public class pizzaParser {
     private static int numeroMaxCeldasPorcion = 0;
     private static int numeroSetas = 0;
     private static int numeroTomates = 0;
-    private final static String SETA = "M"; // Seta sera 1
-    private final static String TOMATE = "T"; // Tomate sera 0
+    private final static String TOMATE = "T"; // Tomate sera 0 y Seta sera 1
     private static ArrayList<Integer> pizzaPlana; 
-   /*
-    private static void contarIngredientes(String _lineaMatriz){
-       String[] ingredientes = _lineaMatriz.split("");
-        for (String ingrediente : ingredientes) {
-            if(ingrediente.equals(SETA)){
-                numeroSetas+=1;
-            } else if (ingrediente.equals(TOMATE)){
-                numeroTomates+=1;
-            }
-        }
 
-    }
-    */
-    private getNumeroIngredientes(){
+    public int getNumeroIngredientes(){
         return numeroIngredientes;
     }
     
-    private getNumeroMaxCeldasPorcion(){
+    public int getNumeroMaxCeldasPorcion(){
         return numeroMaxCeldasPorcion;
     }
 
-    private getNumeroFilas(){
+    public int getNumeroFilas(){
         return numeroFilas;
     }
 
-    private getNumeroColumnas(){
+    public int getNumeroColumnas(){
         return numeroColumnas;
     }
 
-    private getPizzaPlana(){
+    public ArrayList<Integer> getPizzaPlana(){
         return pizzaPlana;
     }
 
-    public pizzaParser(String filename){
+    public PizzaParser(String filename){
         this.FICHERO_PIZZA = filename;
         String linea = null;
         int lineaCounter = 0;
@@ -63,7 +50,6 @@ public class pizzaParser {
             BufferedReader miLectorBuffered = new BufferedReader(miLectorPizzas); // Al leer por buffer hacemos una lectura mas efectiva
             System.out.println("Creacion finalizada");
             while(((linea = miLectorBuffered.readLine()) != null)&&!errorExtraccion) {
-                System.out.println(linea);
                 if(lineaCounter==0){
                     // Si la linea es 0 hay que extraer las caracteristicas de la pizza
                     errorExtraccion = extraerCaracteristicasPizza(linea);
@@ -73,15 +59,6 @@ public class pizzaParser {
                 lineaCounter+=1; 
             }   
             miLectorBuffered.close();
-            System.out.println("Caracteristicas: ");
-            System.out.print("Numero de filas: "+ String.valueOf(numeroFilas));
-            System.out.print(" Numero de columnas: "+ String.valueOf(numeroColumnas));
-            System.out.print(" Numero de Ingredientes: "+ String.valueOf(numeroIngredientes));
-            System.out.print(" Numero de maximo de celdas por porcion: "+ String.valueOf(numeroMaxCeldasPorcion));
-            System.out.print(" Numero de setas: "+ String.valueOf(numeroSetas));
-            System.out.print(" Numero de tomates: "+ String.valueOf(numeroTomates));
-            System.out.println("Pizza aplanada : ");
-            System.out.println(pizzaPlana.toString());
         } catch (Exception e){
             System.out.println("Se ha producido una excepcion :"+ e.toString());
         }
@@ -115,11 +92,6 @@ public class pizzaParser {
         }
         return errorExtraccion;
     }
-        
+
 }
 
-public Class PizzaLauncher()
-    public static void main(String args[]){
-
-    }
-}
